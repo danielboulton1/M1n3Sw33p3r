@@ -3,6 +3,7 @@ package spencer.antliff;
 public class Driver {
 
 	public static void main(String[] args) {
+		
 		final int ROWS = 16;
 		final int COLS = 16;
 		final CellState empty = CellState.EMPTY;

@@ -22,7 +22,16 @@ public class Board {
 	
 		}	
 	}
-	
+	public CellState getCell(int row,int col) {
+		CellState cell = board[row][col].getState();
+		return cell;
+	}
+	public int getRows() {
+		return rows;
+	}
+	public int getCols() {
+		return cols;
+	}
 	public void numPlace(Cell[][] arr,int row, int col) {
 		//to organize direction checks
 		CellState up = CellState.BOMB;
