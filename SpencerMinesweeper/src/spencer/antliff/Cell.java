@@ -45,8 +45,6 @@ private CellState state;
 		switch (state) {
 		case HIDDEN:
 			return "H";
-		case SHOW:
-			return "S";
 		case BOMB:
 			return "x";
 		case B1:
