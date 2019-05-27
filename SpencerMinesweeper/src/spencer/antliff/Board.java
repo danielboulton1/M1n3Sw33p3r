@@ -26,6 +26,7 @@ public class Board {
 		CellState cell = board[row][col].getState();
 		return cell;
 	}
+
 	public int getRows() {
 		return rows;
 	}
