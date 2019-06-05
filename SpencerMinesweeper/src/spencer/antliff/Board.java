@@ -6,33 +6,62 @@ public class Board {
 	private static int cols;
 	
 	static CellState empty = CellState.EMPTY;
-	static CellState hidden = CellState.HIDDEN;
-	public Board(int aRows, int aCols,CellState cell) {
+	/**
+	 * Creates the game board
+	 * @param aRows
+	 * number of rows
+	 * @param aCols
+	 * number of columns
+	 * @param cell
+	 * 
+	 */
+	public Board(int aRows, int aCols) {
 		board = new Cell[aRows][aCols];
 		rows = aRows;
 		cols = aCols;
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				board[i][j] = new Cell(cell); // no color
+				board[i][j] = new Cell(CellState.EMPTY); // no color
 			}
 		}
-		if(cell==CellState.EMPTY) {
 		bombPlace(board, rows, cols);
-		numPlace(board, rows, cols);
-	
-		}	
+		numPlace(board, rows, cols);	
 	}
+	/**
+	 * returns the cell state at a point
+	 * @param row
+	 * row value of cell
+	 * @param col
+	 * column value of cell
+	 * @return
+	 */
 	public CellState getCell(int row,int col) {
 		CellState cell = board[row][col].getState();
 		return cell;
 	}
-
+	/**
+	 * returns the row location
+	 * @return
+	 */
 	public int getRows() {
 		return rows;
 	}
+	/**
+	 * returns the column location
+	 * @return
+	 */
 	public int getCols() {
 		return cols;
 	}
+	/**
+	 * Places the numbers on the board depending on how many bombs are next to it
+	 * @param arr
+	 * 2d cell array with bombs
+	 * @param row
+	 * length of row of the cell[][]
+	 * @param col
+	 * length of col of the cell[][]
+	 */
 	public void numPlace(Cell[][] arr,int row, int col) {
 		//to organize direction checks
 		CellState up = CellState.BOMB;
@@ -220,6 +249,15 @@ public class Board {
 			}
 		}
 	}
+	/**
+	 * Places 40 bombs randomly. 1% chance for a bomb to be placed on the 2d cell array arr, continues to place bombs on empty cells until 40 bombs has bee placed
+	 * @param arr
+	 * 2d cell array
+	 * @param row
+	 * length of row of the cell[][]
+	 * @param col
+	 * length of col of the cell[][]
+	 */
 	public void bombPlace(Cell[][] arr,int row, int col) {
 		Random r = new Random();
 		CellState bomb = CellState.BOMB;
@@ -245,6 +283,9 @@ public class Board {
 			}
 		}
 	}
+	/*
+	 * Displays non graphical board
+	 */
 	public void display() {
 		System.out.println("BOARD");
 		for (int i = 0; i < rows; i++) {

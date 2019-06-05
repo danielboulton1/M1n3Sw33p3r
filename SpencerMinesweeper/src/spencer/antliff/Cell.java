@@ -7,6 +7,11 @@ private CellState state;
 		state = cs;
 		
 	}
+	/**
+	 * takes an interger, and sets the CellState based on that integer
+	 * @param num
+	 * inputed Integer, determines CellState
+	 */
 	public void setNum(int num) {
 		if(num==1) {
 			setState(CellState.B1);
@@ -33,14 +38,26 @@ private CellState state;
 			setState(CellState.B8);
 		}
 	}
+	/**
+	 * sets the CellState to inputed CellState
+	 * @param cs
+	 * inputed cellState
+	 */
 	public void setState (CellState cs){
 		state = cs;
 	}
-	
+	/**
+	 * gets the CellState at a location
+	 * @return
+	 * returns the CellState
+	 */
 	public CellState getState() {
 		return state;
 	}
-
+	//for non-graphical version of game, isn't used in current version of minesweeper
+	/**
+	 * changes enum values into strings
+	 */
 	public String toString() {
 		switch (state) {
 		case HIDDEN:
